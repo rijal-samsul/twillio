@@ -3,6 +3,7 @@ import Login from "./pages/login";
 import Prejoin from "./pages/Prejoin";
 import Check from "./pages/check";
 import Room from "./pages/Room";
+import VideoComponent from "./pages/test";
 function App() {
   return (
     <Routes>
@@ -10,6 +11,7 @@ function App() {
       <Route exact path='/prejoin' element={<Prejoin/>}/>
       <Route exact path='/check' element={<Check/>}/>
       <Route exact path='/room' element={<Room/>}/>
+      <Route exact path='/video' element={<VideoComponent/>}/>
     </Routes>
   );
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Container, Row, Col, Image, Card, Button } from "react-bootstrap";
 import adira from "../assets/images/adira.png";
 import icon from "../assets/images/icon.png";
@@ -10,6 +10,7 @@ import { Usercontext } from "../context/user-context";
 import Buttonvid from "../partial/Buttonvid";
 import "../style.css"
 import { useNavigate } from "react-router-dom"
+import Video from "twilio-video";
 
 export default function Check() {
     const [videoState] = useContext(Videocontext)
@@ -26,33 +27,40 @@ export default function Check() {
 
         Navigate('/room')
     }
-  
-//   async function startVideo() {
-//     const track = await createLocalVideoTrack();
-//     const box = document.getElementById("box");
-//     box.append(track.attach());
-//     console.log("Local Video Track : ", track);
+
+//   async function start() {
+
+//         // const startButton = document.getElementById("start")
+//         // startButton.value = "on"
+//         const tracks = await createLocalTracks();
+//         const box = document.getElementById("box");
+//         const LocalVideoTrack = tracks.find(track => track.kind === 'video');
+//         box.appendChild(LocalVideoTrack.attach());
+// }
+
+// useEffect(() => {
+//   var localTracksPromise = this.previewTracks
+//   ? Promise.resolve(this.previewTracks)
+//   : Video.createLocalTracks();
+
+// localTracksPromise.then(
+//   (tracks)=> {
+//       window.previewTracks = this.previewTracks = tracks;
+//       var previewContainer = document.getElementById("local-media");
+//       if (!previewContainer.querySelector("video")) {
+//           this.attachTracks(tracks, previewContainer);
+//       }
+//   },
+//   (error)=> {
+//       this.log("Unable to access Camera and Microphon");
 //   }
-  async function start() {
-    const startButton = document.getElementById("start")
-    if (startButton.value === "on") {
-        startButton.value = "off"
-        // startButton.innerHTML = ""
-        const tracks = await createLocalTracks({
-            audio: true,
-            video: { width: 20}
-    });
-        const box = document.getElementById("box");
-        const LocalVideoTrack = tracks.find(track => track.kind === 'video');
-        box.appendChild(LocalVideoTrack.attach());
-    } else {
-        startButton.value = "on"
-        const tracks = await createLocalTracks();
-        const box = document.getElementById("box");
-        box.innerHTML = ""
-        tracks.stop()
-    }
-}
+// );
+// })
+
+// var previewContainer = this.ref.localMedia;
+// if (!previewContainer.querySelector("video")) {
+//     this.attachParticipantTracks(room.localParticipant, previewContainer);
+// }
 
 async function room() {
     const tracks = await createLocalTracks({
@@ -115,8 +123,8 @@ async function room() {
               style={{ position: "relative", paddingLeft: 50 }}
             >
 
-              <div id="box">{start}</div>
-              
+              <div id="box"></div>
+              {/* <div ref="localMedia" id="local-media"></div> */}
               <Buttonvid />
             </Col>
             <Col sm={4}>
@@ -146,13 +154,7 @@ async function room() {
           </Row>
         </Container>
       </div>
-      {/* <button onClick={startVideo}>Video on</button>
-            <div id='box'></div>
-            <button onClick={startRoom}>Join Room</button>
-            <div className='videos'>
-                <div id='video-container'></div>
-                <p id='name'></p>
-            </div> */}
+
     </>
   );
 }

@@ -5,7 +5,7 @@ import more from "../assets/images/more.png";
 import camoff from "../assets/images/camoff.jpg"
 import offvideo from "../assets/images/offvideo.png"
 import offaudio from "../assets/images/offaudio.png"
-import { Container, Row, Col, Button, Image } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { Twilio, createLocalVideoTrack, TrackPublication, Participant, Track, connect, createLocalTracks } from 'twilio-video'
 
 function Buttonvid() {
@@ -23,6 +23,8 @@ function Buttonvid() {
     console.log(states);
   };
 
+  // let startButton
+  // startButton.click()
   async function start() {
     const startButton = document.getElementById("start")
     if (startButton.value === "on") {
@@ -42,6 +44,7 @@ function Buttonvid() {
         tracks.stop()
     }
 }
+// start()
 
   return (
     <Container style={{ position: "absolute", top: 380, left: 280 }}>
@@ -76,7 +79,7 @@ function Buttonvid() {
             className="btn me-2 border-0"
             // onClick={buttonHandlers}
             id="start"
-            value = "on"
+            value = "off"
             onClick={start}
             style={
               { backgroundColor: "#DDE7FF" }

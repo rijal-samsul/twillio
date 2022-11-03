@@ -14,19 +14,19 @@ import Chat from "../partial/Chat";
 import Data from "../partial/Data";
 import Screen from "../partial/Screen";
 import "../style.css"
-import { Twilio, createLocalVideoTrack, TrackPublication, Participant, Track, connect, createLocalTracks } from 'twilio-video'
-import { useContext } from "react";
-import { Videocontext } from "../context/video-context";
-import { Usercontext } from "../context/user-context";
+// import { Twilio, createLocalVideoTrack, TrackPublication, Participant, Track, connect, createLocalTracks } from 'twilio-video'
+// import { useContext } from "react";
+// import { Videocontext } from "../context/video-context";
+// import { Usercontext } from "../context/user-context";
 
 function Room() {
-    const [videoState] = useContext(Videocontext)
-    const [state] = useContext(Usercontext)
-    const token = localStorage.token
-    console.log("Access Token : ", token);
-    const [user] = useState(state.user)
-    const [roomName] = useState(videoState.roomName)
-    console.log(videoState.roomName);
+    // const [videoState] = useContext(Videocontext)
+    // const [state] = useContext(Usercontext)
+    // const token = localStorage.token
+    // console.log("Access Token : ", token);
+    // const [user] = useState(state.user)
+    // const [roomName] = useState(videoState.roomName)
+    // console.log(videoState.roomName);
 
 
     const [menu, setMenu] = useState()
@@ -63,30 +63,30 @@ function Room() {
         }
     }
 
-    async function room() {
-    const tracks = await createLocalTracks({
-        audio: true,
-        video: {facingMode: 'user'}
-    })
-    const username = user
-    const nameRoom = roomName
-    const LocalVideoTrack = tracks.find(track => track.kind === 'video');
-    const box = document.getElementById("box");
-    const on = document.getElementById("on-btn");
-    const name = document.getElementById("name")
-    const rooms = document.getElementById("roomName")
-    await connect(`${token}`, {
-        name: `${roomName}`,
-        tracks
-    })
-    box.appendChild(LocalVideoTrack.attach());
-    // on.style.visibility = "hidden";
-    console.log("Local Tracks : ", tracks);
-    console.log("You are connect to room : ", nameRoom);
-    console.log("User Name : ", username);
-    // name.append(document.createTextNode(username))
-    // rooms.append(document.createTextNode(`You are connected to room : ${nameRoom}`))
-  };
+  //   async function room() {
+  //   const tracks = await createLocalTracks({
+  //       audio: true,
+  //       video: {facingMode: 'user'}
+  //   })
+  //   const username = user
+  //   const nameRoom = roomName
+  //   const LocalVideoTrack = tracks.find(track => track.kind === 'video');
+  //   const box = document.getElementById("box");
+  //   const on = document.getElementById("on-btn");
+  //   const name = document.getElementById("name")
+  //   const rooms = document.getElementById("roomName")
+  //   await connect(`${token}`, {
+  //       name: `${roomName}`,
+  //       tracks
+  //   })
+  //   box.appendChild(LocalVideoTrack.attach());
+  //   // on.style.visibility = "hidden";
+  //   console.log("Local Tracks : ", tracks);
+  //   console.log("You are connect to room : ", nameRoom);
+  //   console.log("User Name : ", username);
+  //   // name.append(document.createTextNode(username))
+  //   // rooms.append(document.createTextNode(`You are connected to room : ${nameRoom}`))
+  // };
   return (
     <div style={{ backgroundColor: "#FAFAFA", height: "100vh" }}>
       <Container className="py-4">
