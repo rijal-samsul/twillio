@@ -1,0 +1,13 @@
+@import url('http://fonts.cdnfonts.com/css/proxima-nova-condensed');
+
+.textDefault {
+    font-family: 'Proxima Nova Extra Condensed', sans-serif;
+    font-style: normal;
+    font-weight: 100;
+}
+
+#box video {
+    max-width:100%;
+    margin: auto;
+    border-radius: 20px;
+}
