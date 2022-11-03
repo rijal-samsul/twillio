@@ -19,7 +19,7 @@ import "../style.css"
 // import { Videocontext } from "../context/video-context";
 // import { Usercontext } from "../context/user-context";
 
-function Room() {
+function Room({box}) {
     // const [videoState] = useContext(Videocontext)
     // const [state] = useContext(Usercontext)
     // const token = localStorage.token
@@ -101,7 +101,7 @@ function Room() {
                     style={{ objectFit: "cover", width: "100%" }}
                     src="https://img.freepik.com/free-photo/close-up-smiley-man-taking-selfie_23-2149155156.jpg?w=2300"
                   /> */}
-                  <div id="box"></div>
+                  <div id="box">{box}</div>
                 </Col>
                 <Col sm={4} style={{ position: "relative" }}>
                   <Image
